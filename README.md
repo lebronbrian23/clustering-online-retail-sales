@@ -89,11 +89,53 @@ Steps
 ### Exploratory Analysis
 
 TODO (adjust and complete):
-- Distribution of purchases by country
-- Correlation between quantity and unit price
-- RFM (Recency, Frequency, Monetary) analysis for feature engineering
 
----
+We used SQLite to extract revelant information for our analysis:
+
+- Total number of valid of transactions after data cleaning
+  20,524 valid transaction
+
+- Distribution of the top 10 sales by country
+| Country         | Transactions | Total Revenue     |
+|----------------|--------------|-------------------|
+| United Kingdom | 18,628       | £8,693,481.34     |
+| Netherlands     | 95           | £285,446.34       |
+| EIRE            | 281          | £276,150.18       |
+| Germany         | 451          | £227,569.65       |
+| France          | 386          | £207,743.45       |
+| Australia       | 54           | £138,219.71       |
+| Spain           | 89           | £61,530.36        |
+| Switzerland     | 52           | £56,905.95        |
+| Belgium         | 98           | £41,196.34        |
+| Japan           | 19           | £37,416.37        |
+
+- Top 10 selling products overall
+| StockCode | Description                               | Total Sold |
+|-----------|-------------------------------------------|------------|
+| 84077     | WORLD WAR 2 GLIDERS ASSTD DESIGNS         | 54,999     |
+| 85099B    | JUMBO BAG RED RETROSPOT                   | 47,827     |
+| 85123A    | WHITE HANGING HEART T-LIGHT HOLDER        | 37,025     |
+| 22197     | POPCORN HOLDER                            | 36,558     |
+| 84879     | ASSORTED COLOUR BIRD ORNAMENT             | 36,440     |
+| 21212     | PACK OF 72 RETROSPOT CAKE CASES           | 36,347     |
+| 23084     | RABBIT NIGHT LIGHT                        | 30,770     |
+| 22492     | MINI PAINT SET VINTAGE                    | 26,561     |
+| 22616     | PACK OF 12 LONDON TISSUES                 | 26,339     |
+| 21977     | PACK OF 60 PINK PAISLEY CAKE CASES        | 24,806     |
+
+- Correlation between quantity and unit price
+  #feature_analysis file under experiments folder
+  #plot image for support in the support images folder
+
+- RFM (Recency, Frequency, Monetary) analysis for feature engineering
+  #feature_analysis file under experiments folder (needs paraphrasing)
+CustomerID | Recency | Frequency | Monetary | RFM Score | Interpretation                          |
+|------------|---------|-----------|----------|-----------|------------------------------------------|
+| 12347      | 2       | 7         | £4,310.00| 5-5-5     | Best customer: recent, frequent, high spender |
+| 12348      | 75      | 4         | £1,797.24| 2-4-4     | Good spender, moderately active        |
+| 12349      | 19      | 1         | £1,757.55| 4-1-4     | High spender, but infrequent           |
+| 12350      | 310     | 1         | £334.40  | 1-1-2     | Dormant and low value                 |
+| 12352      | 36      | 7         | £2,385.71| 3-5-5     | Active and valuable                    |
 
 ## 🤖 Initial Model Development
 - TODO (adjust and complete):
