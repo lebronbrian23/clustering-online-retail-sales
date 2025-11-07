@@ -25,11 +25,17 @@ def load_data(path: str) -> pd.DataFrame:
     return df
 
 def add_date_columns(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Adds date columns ('Year', 'Month') to the data.
+    """
     df['Year'] = df['InvoiceDate'].dt.year
     df['Month'] = df['InvoiceDate'].dt.month
     return df
 
 def handle_missing_customer_ids(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Replace missing CustomerID values with a placeholder using country info.
+    """
     df['CustomerID'] = df.apply(
         lambda row: f"guest_{row['Country']}" if pd.isnull(row['CustomerID']) else row['CustomerID'],
         axis=1
@@ -37,13 +43,22 @@ def handle_missing_customer_ids(df: pd.DataFrame) -> pd.DataFrame:
     return df
 
 def remove_invalid_invoices(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Remove invoices whose InvoiceNo starts with 'A' (invalid entries).
+    """
     return df[~df['InvoiceNo'].str.startswith('A')].copy()
 
 def add_subtotal_column(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Add a 'Subtotal' column calculated from Quantity × UnitPrice.
+    """
     df['Subtotal'] = df['Quantity'] * df['UnitPrice']
     return df
 
 def flag_cancellations(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Detect and flag cancelled and matched invoices.
+    """
     # Aggregate by InvoiceNo
     summary = df.groupby('InvoiceNo').agg({
         'Subtotal': 'sum',
@@ -92,13 +107,22 @@ def flag_cancellations(df: pd.DataFrame) -> pd.DataFrame:
 
 
 def remove_invalid_quantity_records(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Remove rows with negative quantity and zero price.
+    """
     return df[~((df['Quantity'] < 0) & (df['UnitPrice'] == 0))].copy()
 
 
 def remove_price_0(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Remove records with UnitPrice equal to zero.
+    """
     return df[df['UnitPrice'] != 0]
 
 def remove_unspecified_country(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Remove rows where country is NaN or 'unspecified'.
+    """
     return df[df['Country'].notna() & (df['Country'].str.lower() != 'unspecified')]
 
 
