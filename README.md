@@ -19,7 +19,7 @@ Machine learning model for customer segmentation using the [Online Retail datase
 
 Clustering: How do customers cluster based on their purchasing behavior (eg., product quantities, unit prices, and transaction frequency)
 
-TODO (adjust and complete): This project explores unsupervised learning techniques to cluster customers based on purchasing behavior — including product quantities, unit prices, and transaction frequency.
+TODO (adjust and complete): This project explores unsupervised learning techniques to cluster customers based on purchasing behavior - including product quantities, unit prices, and transaction frequency.
 
 
 **Dataset Summary:**  
@@ -41,17 +41,50 @@ TODO (adjust and complete):
 
 ### Raw Data
 
-TODO (adjust and complete):
-(- ~500,000 transactions
+Steps
+(- 25,900 transactions
 - Key fields: `InvoiceNo`, `StockCode`, `Description`, `Quantity`, `InvoiceDate`, `UnitPrice`, `CustomerID`, `Country`)
+
+| Variable Name | Role    | Type        | Description                                                                                                                        |
+| ------------- | ------- | ----------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| InvoiceNo     | ID      | Categorical | A 6-digit integral number uniquely assigned to each transaction. If this code starts with letter 'C', it indicates a cancellation. |
+| StockCode     | ID      | Categorical | A 5-digit integral number uniquely assigned to each distinct product.                                                              |
+| Description   | Feature | Categorical | Product name.                                                                                                                      |
+| Quantity      | Feature | Integer     | The quantities of each product (item) per transaction.                                                                             |
+| InvoiceDate   | Feature | Date        | The day and time when each transaction was generated.                                                                              |
+| UnitPrice     | Feature | Continuous  | Product price per unit.                                                                                                            |
+| CustomerID    | Feature | Categorical | A 5-digit integral number uniquely assigned to each customer.                                                                      |
+| Country       | Feature | Categorical | The name of the country where each customer resides.                                                                               |
+
 
 ### Preprocessing
 
-TODO (adjust and complete):
-- Handle missing `CustomerID` values
-- Remove canceled transactions (negative quantities)
+#### Steps
+- Add date columns.
+- Handle missing CustomerID.
+- Remove invalid InvoiceNo entries.
 - Convert dates to useful features (e.g., recency, frequency)
-- Normalize and scale numeric features
+- Add Subtotal column.
+- Flag cancellations.
+- Remove invalid quantity records.
+
+### Dataset Variables
+
+| Variable Name     | Role     | Type         | Description                                                                 |
+|--------------------|----------|--------------|------------------------------------------------------------------------------|
+| InvoiceNo          | ID       | Categorical  | A 6-digit integral number uniquely assigned to each transaction. If this code starts with letter 'C', it indicates a cancellation. |
+| StockCode          | ID       | Categorical  | A 5-digit integral number uniquely assigned to each distinct product.        |
+| Description        | Feature  | Categorical  | Product name.                                                                |
+| Quantity           | Feature  | Integer      | The quantity of each product (item) per transaction.                         |
+| InvoiceDate        | Feature  | Date         | The date and time when each transaction was generated.                       |
+| UnitPrice          | Feature  | Continuous   | Product price per unit.                                                      |
+| CustomerID         | Feature  | Categorical  | A 5-digit integral number uniquely assigned to each customer.                |
+| Country            | Feature  | Categorical  | The name of the country where each customer resides.                         |
+| Year               | Derived  | Integer      | The year extracted from the `InvoiceDate`.                                   |
+| Month              | Derived  | Integer      | The month extracted from the `InvoiceDate`.                                  |
+| Subtotal           | Derived  | Float        | The total amount for each item (Quantity × UnitPrice).                       |
+| CancellationFlag   | Derived  | Categorical  | Indicates whether a transaction is cancelled or matched with another invoice. |
+
 
 ### Exploratory Analysis
 
