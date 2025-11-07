@@ -1,8 +1,25 @@
 # retail_cleaning_pipeline.py
 
 import pandas as pd
+import logging
+
+logging.basicConfig(level=logging.INFO)
 
 def load_data(path: str) -> pd.DataFrame:
+    """
+    Load and preprocess invoice data from an Excel file.
+
+    Parameters
+    ----------
+    path : str
+        The file path to the Excel document containing invoice data.
+
+    Returns
+    -------
+    pd.DataFrame
+        A pandas DataFrame with parsed 'InvoiceDate' as datetime
+        and 'InvoiceNo' converted to string.
+    """
     df = pd.read_excel(path, parse_dates=["InvoiceDate"])
     df['InvoiceNo'] = df['InvoiceNo'].astype(str)
     return df
@@ -77,10 +94,28 @@ def flag_cancellations(df: pd.DataFrame) -> pd.DataFrame:
 def remove_invalid_quantity_records(df: pd.DataFrame) -> pd.DataFrame:
     return df[~((df['Quantity'] < 0) & (df['UnitPrice'] == 0))].copy()
 
-import logging
-logging.basicConfig(level=logging.INFO)
+
+def remove_price_0(df: pd.DataFrame) -> pd.DataFrame:
+    return df[df['UnitPrice'] != 0]
+
+def remove_unspecified_country(df: pd.DataFrame) -> pd.DataFrame:
+    return df[df['Country'].notna() & (df['Country'].str.lower() != 'unspecified')]
+
 
 def clean_retail_data(path: str) -> pd.DataFrame:
+    """
+    Load and preprocess invoice data from an Excel file.
+
+    Parameters
+    ----------
+    path : str
+        The file path to the Excel document containing invoice data.
+
+    Returns
+    -------
+    pd.DataFrame
+        To adjust
+    """
     logging.info("Loading data...")
     df = load_data(path)
     logging.info("Adding date columns...")
@@ -95,5 +130,10 @@ def clean_retail_data(path: str) -> pd.DataFrame:
     df = flag_cancellations(df)
     logging.info("Removing invalid quantity records...")
     df = remove_invalid_quantity_records(df)
+    logging.info("Removing UnitPrice = 0...")
+    df = remove_price_0(df)
+    logging.info("Removing 'unspecified' Countries...")
+    df = remove_unspecified_country(df)
     logging.info("Cleaning complete.")
+
     return df
