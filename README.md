@@ -46,9 +46,9 @@ Success Criteria:
 
 ### Raw Data
 
-Steps
+Steps:
 (- 25,900 transactions
-- Key fields: `InvoiceNo`, `StockCode`, `Description`, `Quantity`, `InvoiceDate`, `UnitPrice`, `CustomerID`, `Country`)
+ - Key fields: `InvoiceNo`, `StockCode`, `Description`, `Quantity`, `InvoiceDate`, `UnitPrice`, `CustomerID`, `Country`)
 
 | Variable Name | Role    | Type        | Description                                                                                                                        |
 | ------------- | ------- | ----------- | ---------------------------------------------------------------------------------------------------------------------------------- |
