@@ -96,7 +96,7 @@ TODO (adjust and complete):
 We used SQLite to extract revelant information for our analysis:
 
 - Total number of valid of transactions after data cleaning:
-  20,524 valid transactions. It suggests that average number of distinct products contained in each transaction was 26.3 (=540,562/20,524). This seems to suggest that many of the consumers of the business were organizational customers rather than individual customers. Also the majority of the sales were from United Kingdom with 18,628 transactions and total sales of 8.6million pounds.
+  20,524 valid transactions. It suggested that average number of distinct products contained in each transaction was 26.3 (=540,562/20,524). This seemed to suggest that many of the consumers of the business were organizational customers rather than individual customers. Also the majority of the sales were from United Kingdom with 18,628 transactions and total sales of 8.6 million pounds. And the top sale product was "WORLD WAR 2 GLIDERS ASSTD DESIGNS" with a total sales of 54,999 pounds. 
  
 
 - Distribution of the top 10 sales by country
@@ -131,14 +131,21 @@ We used SQLite to extract revelant information for our analysis:
   #feature_analysis file under experiments folder
   #plot image for support in the support images folder
 
-Our initial correlation model shows a correlation value between Quantity and UnitPrice of: -0.0209, which is a weak correlation. It is virtually no linear relationship between Quantity and UnitPrice. A small negative correlation (–0.0209) suggests that, on average, buying more items is very slightly associated with lower unit prices. However, this is a bit counterintuitive and not meaningful based on normal business sense. We can see from the ploted Quantity and UnitPrice chart below. 
+Our initial correlation model showed a correlation value between Quantity and UnitPrice of: -0.0209, which was a weak correlation. There is virtually no linear relationship between Quantity and UnitPrice. A small negative correlation (–0.0209) suggests that, on average, buying more items is very slightly associated with lower unit prices. However, this was a bit counterintuitive and not meaningful based on normal business sense. When we plotted Quantity and UnitPrice chart, we saw there were a couple of high value transactions with lower number of transactions and majority of transactions were at the smaller values, this may explain why without price segmentation, initial correction model showed a weak correlation between unit price and quantity. 
 
 ![Online Retail Dataset ](https://github.com/lebronbrian23/ml4-online-retail/blob/main/support_images/correlation_qty_price.png)
 
 
 
 - RFM (Recency, Frequency, Monetary) analysis for feature engineering
-  #feature_analysis file under experiments folder (needs paraphrasing)
+  
+Here we also conducted RFM analysis to group customers based on how they shop: Recency, Frequency and Monetary. This helped to understand customers’ buying habits so that business owners can identify who their best and most loyal customers were.
+1) Recency represented: How long it’s been since the customer last made a purchase. Customers who bought something recently get higher scores: 5 = very recent, 1 = very old.
+2) Frequency represented: How often the customer makes a purchase. People who buy more often get higher scores: 5 = frequent buyer, 1 = rare.
+3) Monetary represent: How much money the customer has spent in total. Customers who spend more get higher scores: 5 = high spender, 1 = low spender.
+
+For each customer, we scored their Recency, Frequency and Monetary from 1 to 5: 5 meant the customer performed very well on that measure, 1 meant the customer performed poorly on that measure. 
+The we ranked each customer based on their total RFM score: Recency score + Frequency score + Monetary score. Below tables showed the samples RFM results and how to intepret it.
 
 | CustomerID | Recency | Frequency | Monetary | RFM Score | Interpretation                          |
 |------------|---------|-----------|----------|-----------|------------------------------------------|
