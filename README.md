@@ -30,7 +30,7 @@ This transactional dataset contains all purchases made between 01/12/2010 and 09
 ## 🎯 Objectives & Success Criteria
 
 Objectives:
-- Identify meaningful customer clusters using unsupervised learning
+- Identify meaningful customer clusters using both supervised and unsupervised learning
 - Create well-separated stable clusters
 - Evaluate clustering quality using metrics like silhouette score and intra-cluster variance
 - Ensure reproducibility and interpretability of the pipeline
@@ -65,7 +65,7 @@ Steps:
 ### Preprocessing
 
 #### Steps
-- Add date columns.
+- Add Year & Month columns.
 - Handle missing CustomerID.
 - Remove invalid InvoiceNo entries.
 - Convert dates to useful features. 
@@ -91,7 +91,7 @@ Steps:
 | CancellationFlag   | Derived  | Categorical  | Indicates whether a transaction is cancelled or matched with another invoice. |
 
 ### Dataset Precessing Summary
-After our data cleaning, the records in the dataset go down to: 540562 from the original: 541909 records, each for a particular item contained in a
+After our data cleaning, the records in the dataset go down to: 540562[528560 with cancelation] from the original: 541909 records, each for a particular item contained in a
 transaction. We added four new columns: Year, Month, Subtotal and CancellationFlat for advance data analysis, and the dataset goes from the original 8 columns to 12 columns. By including new columns, we improve the dataset without modifying the value of the original fields. Therefore we are confident that our data cleaning preserves the characteristic of the original dataset.
 
 ### Exploratory Analysis
@@ -162,16 +162,13 @@ The we ranked each customer based on their total RFM score: Recency score + Freq
 | 12350      | 310     | 1         | £334.40  | 1-1-2     | Dormant and low value                 |
 | 12352      | 36      | 7         | £2,385.71| 3-5-5     | Active and valuable                    |
 
-## 🤖 Initial Model Development
-- TODO (adjust and complete):
-
 ### Feature Selection
-- TODO (adjust and complete):
 - RFM features
 - Aggregated purchase behavior per customer
 
+## 🤖 Initial Model Development
+
 ### Algorithms Explored
-- TODO (adjust and complete):
 - K-Means
 - DBSCAN
 - Hierarchical Clustering
