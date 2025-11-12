@@ -162,16 +162,13 @@ The we ranked each customer based on their total RFM score: Recency score + Freq
 | 12350      | 310     | 1         | £334.40  | 1-1-2     | Dormant and low value                 |
 | 12352      | 36      | 7         | £2,385.71| 3-5-5     | Active and valuable                    |
 
-## 🤖 Initial Model Development
-- TODO (adjust and complete):
-
 ### Feature Selection
-- TODO (adjust and complete):
 - RFM features
 - Aggregated purchase behavior per customer
 
+## 🤖 Initial Model Development
+
 ### Algorithms Explored
-- TODO (adjust and complete):
 - K-Means
 - DBSCAN
 - Hierarchical Clustering
