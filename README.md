@@ -186,23 +186,24 @@ Together, these models provide a comprehensive view of customer diversity and pu
 - Cluster visualization
 
 #### K-means
-![K-Means Elbow and Silhouette Plot with Outlier](../support_images/kmeans_elbow_with.png)
-![DBK-MeansSCAN Elbow and Silhouette Plot without Outlier](../support_images/kmeans_elbow_without.png)
-![K-Means Clusters with Outlier](../support_images/kmeans_cluster_with_outlier.png)
-![K-Means Clusters without Outlier](../support_images/kmeans_cluster_without_outlier.png)
+![K-Means Elbow and Silhouette Plot with Outlier](https://github.com/lebronbrian23/clustering-online-retail-sales/blob/main/support_images/kmeans_elbow_with.png)
+![DBK-MeansSCAN Elbow and Silhouette Plot without Outlier](https://github.com/lebronbrian23/clustering-online-retail-sales/blob/main/support_images/kmeans_elbow_without.png)
+![K-Means Clusters with Outlier](https://github.com/lebronbrian23/clustering-online-retail-sales/blob/main/support_images/kmeans_cluster_with_outlier.png)
+![K-Means Clusters without Outlier](https://github.com/lebronbrian23/clustering-online-retail-sales/blob/main/support_images/kmeans_cluster_without_outlier.png)
 
 #### DBSCAN 
-![DBSCAN Elbow and Silhouette Plot with Outlier](../support_images/dbscan_elbow_and_silhouette_with.png)
-![DBSCAN Elbow and Silhouette Plot without Outlier](../support_images/dbscan_elbow_and_silhouette_without.png)
-![DBSCAN Clusters with Outlier](../support_images/dbscan_cluster_with_outlier.png)
-![DBSCAN Clusters without Outlier](../support_images/dbscan_cluster_without_outlier.png)
+![DBSCAN Elbow and Silhouette Plot with Outlier](https://github.com/lebronbrian23/clustering-online-retail-sales/blob/main/support_images/dbscan_elbow_and_silhouette_with.png)
+![DBSCAN Elbow and Silhouette Plot without Outlier](https://github.com/lebronbrian23/clustering-online-retail-sales/blob/main/support_images/dbscan_elbow_and_silhouette_without.png)
+![DBSCAN Clusters with Outlier](https://github.com/lebronbrian23/clustering-online-retail-sales/blob/main/support_images/dbscan_cluster_with_outlier.png)
+![DBSCAN Clusters without Outlier](https://github.com/lebronbrian23/clustering-online-retail-sales/blob/main/support_images/dbscan_cluster_without_outlier.png)
 
 ## 🔍 Model Interpretation
 
 - Visualize clusters using 2D projections (PCA)
 - Analyze cluster characteristics (e.g., high spenders vs. frequent buyers)
 
-![KMeans PCA](../support_images/kmeans_pca_final.png)
+![KMeans PCA](https://github.com/lebronbrian23/clustering-online-retail-sales/blob/main/support_images/kmeans_pca_final.png)
+
 
 K-Means cluster analysis (without outlier):
 | Cluster | Monetary (Mean) | Monetary (Median) | Frequency (Mean) | Frequency (Median) | AvgOrderValue (Mean) | AvgOrderValue (Median) |
