@@ -268,6 +268,6 @@ Each team member recorded a 3-5 minute video reflecting on their experience answ
 
 ### Video links
 - [Brian Ssekalegga](https://github.com/lebronbrian23)  
-- [Luis Curiel Rojas](https://github.com/luis999-eng) 
+- [Luis Curiel Rojas](https://youtu.be/J51j_RHPuQU) 
 - [Meisam Mofidi](https://github.com/meisammofidi) 
 - [Minling Lian](https://github.com/lianml2025)
