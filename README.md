@@ -262,5 +262,5 @@ K-Means cluster analysis (without outlier):
 ### Video links
 - [Brian Ssekalegga](https://github.com/lebronbrian23)  
 - [Luis Curiel Rojas](https://youtu.be/J51j_RHPuQU) 
-- [Meisam Mofidi](https://github.com/meisammofidi) 
+- [Meisam Mofidi](https://drive.google.com/file/d/1nJgJ5vbIEqcV-yFD5QuomaGMtsNn9w-A/view?usp=sharing) 
 - [Minling Lian](https://github.com/lianml2025)
